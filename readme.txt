@@ -7,3 +7,6 @@ React : DOM 을 안써보자
 21.12.07
 작게 시작하기.
 Minimum Viable Product 최소기능제품!
+
+21.12.08
+react 초기버전 살펴보기
