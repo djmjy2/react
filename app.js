@@ -1,27 +1,49 @@
-function createH1(props) {
-  return [document.createElement('h1')]
-    .map(element => {
-      Object
-        .entries({ ...props, 'data-id': 'title' })
-        .forEach(([name, value]) => element.setAttribute(name, value))
-      return element;
-    })[0];
+function createDOM(node) {
+  if (typeof node === 'string') {
+    return document.createTextNode(node);
+  }
+  const element = document.createElement(node.tag);
+
+  node.children
+    .map(createDOM)
+    .forEach(element.appendChild.bind(element));
+
+  return element;
 }
 
-function createDiv(props) {
-  return [document.createElement('div')]
-    .map(element => {
-      Object
-        .entries({ ...props, 'data-id': 'layout' })
-        .forEach(([name, value]) => element.setAttribute(name, value))
-      return element;
-    })[0];
-}
-
-const creatorMap = {
-  h1: createH1,
-  div: createDiv,
+const node = {
+  tag: 'P',
+  props: {},
+  children: [
+    {
+      tag: 'h1',
+      props: {},
+      children: ["React 만들기"],
+    },
+    {
+      tag: 'ul',
+      props: {},
+      children: [
+        {
+          tag: 'li',
+          props: {},
+          children: ["1번"],
+        },
+        {
+          tag: 'li',
+          props: {},
+          children: ["2번"],
+        },
+        {
+          tag: 'li',
+          props: {},
+          children: ["3번"],
+        },
+      ],
+    },
+  ],
 };
 
-const coupler = map => (type, props) => map[type](props);
-const createElement = coupler(creatorMap);
+document
+  .querySelector('#root')
+  .appendChild(createDOM(node));
