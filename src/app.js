@@ -1,15 +1,4 @@
-function createDOM(node) {
-  if (typeof node === 'string') {
-    return document.createTextNode(node);
-  }
-  const element = document.createElement(node.tag);
-
-  node.children
-    .map(createDOM)
-    .forEach(element.appendChild.bind(element));
-
-  return element;
-}
+import { createDOM, render } from './react';
 
 const node = {
   tag: 'P',
@@ -26,17 +15,23 @@ const node = {
       children: [
         {
           tag: 'li',
-          props: {},
+          props: {
+            style: "color:red"
+          },
           children: ["1번"],
         },
         {
           tag: 'li',
-          props: {},
+          props: {
+            style: "color:blue"
+          },
           children: ["2번"],
         },
         {
           tag: 'li',
-          props: {},
+          props: {
+            style: "color:green"
+          },
           children: ["3번"],
         },
       ],
@@ -44,6 +39,4 @@ const node = {
   ],
 };
 
-document
-  .querySelector('#root')
-  .appendChild(createDOM(node));
+render(node, document.querySelector('#root'));
