@@ -1,42 +1,12 @@
-import { createDOM, render } from './react';
+import { createDOM, createElement, render } from './react';
 
-const node = {
-  tag: 'P',
-  props: {},
-  children: [
-    {
-      tag: 'h1',
-      props: {},
-      children: ["React 만들기"],
-    },
-    {
-      tag: 'ul',
-      props: {},
-      children: [
-        {
-          tag: 'li',
-          props: {
-            style: "color:red"
-          },
-          children: ["1번"],
-        },
-        {
-          tag: 'li',
-          props: {
-            style: "color:blue"
-          },
-          children: ["2번"],
-        },
-        {
-          tag: 'li',
-          props: {
-            style: "color:green"
-          },
-          children: ["3번"],
-        },
-      ],
-    },
-  ],
-};
+const vdom = createElement('p', {}, 
+  createElement('h1', {}, "React 만들기"),
+  createElement('ul', {}, 
+    createElement('li', { style: "color:red" }, "1번"),
+    createElement('li', { style: "color:blue" }, "2번"),
+    createElement('li', { style: "color:green" }, "3번"),
+    )
+  );
 
-render(node, document.querySelector('#root'));
+render(vdom, document.querySelector('#root'));
