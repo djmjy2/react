@@ -25,3 +25,5 @@ react 초기버전 살펴보기
   개발자는 사용하지 않고 React 가 Dom 을 사용하도록 해서 개발자는 DOM을 안쓰는것처럼
 
 21.12.17
+jsx를 사용함으로 app.js 파일에서 createElement를 사용하고 있지 않는것 처럼 보이지만 transfile 된 bundle 에서 사용하므로 반드시 import 해줘야 함
+> 함수 컴포넌트에서 항상 react 를 import 해야하는것과 같은 이유
