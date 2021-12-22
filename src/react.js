@@ -43,9 +43,23 @@ export function createElement(tag, props, ...children) {
       }
     }
   } else {
-    return {tag, props, children }
+    return { tag, props, children }
   }
 }
 export function render(node, container) {
   container.appendChild(createDOM(node));
 }
+
+export const render = (function() {
+  let prevDom = null;
+
+  return function( vdom, container ) {
+    if (prevDom === null) {
+      prevDom = vdom;
+    }
+
+    //diff 처리되어 갱신이 되는 logic
+
+    container.appendChild(createDOM(vdom));
+  }
+})();
