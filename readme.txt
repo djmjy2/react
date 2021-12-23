@@ -35,3 +35,6 @@ jsx를 사용함으로 app.js 파일에서 createElement를 사용하고 있지 
 
  21.12.22
  Virtual Dom : real Dom 을 만드는것 보다 훨씬 효율적
+
+ 21.12.23
+ snabbdom
