@@ -13,7 +13,7 @@ class Title extends Component {
 }
 
 const App = () => <p>
-  <Title label="React">React 클래스컴포넌트 만들기 !</Title>
+  <Title label="React">React 훅 활용해서 만들기</Title>
   <ul>
     <li style="color:red">1번째</li>
     <li style="color:blue">2번째</li>
