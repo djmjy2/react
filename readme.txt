@@ -38,3 +38,6 @@ jsx를 사용함으로 app.js 파일에서 createElement를 사용하고 있지 
 
  21.12.23
  snabbdom
+ 
+ 21.12.27
+ hook 함수가 상태를 갖는다?
